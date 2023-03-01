@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+    veza_insight_point:
+        restart: always
+        logging:
+            driver: local
+            options:
+                max-size: 50m
+                max-file: 5
+        environment:
+            COOKIEAI_CP_ADDR: $VEZA_FQDN:443
+            DP_REGISTER_KEY: $VEZA_IP_REGISTER_KEY
+        image: 'public.ecr.aws/b1u0k2e1/insight_point:latest'
+        pull_policy: always
